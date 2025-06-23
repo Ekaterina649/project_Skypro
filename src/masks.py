@@ -15,21 +15,22 @@ def get_mask_account(account_number: int) -> str:
         raise ValueError
     return f"**{account_number_str[-4:]}"
 
+def actions_user():
+    while True:
+        try:
+            user_number_card = int(input("Введите номер карты: "))
+            mask_card_number = get_mask_card_number(user_number_card)
+            print(f"Номер карты: {mask_card_number}")
+            break  # Выход из цикла, если карта введена верно
+        except ValueError as e:
+            print("Номер карты должен состоять из 16 символов")
 
-while True:
-    try:
-        user_number_card = int(input("Введите номер карты: "))
-        mask_card_number = get_mask_card_number(user_number_card)
-        print(f"Номер карты: {mask_card_number}")
-        break  # Выход из цикла, если карта введена верно
-    except ValueError as e:
-        print("Номер карты должен состоять из 16 символов")
+    while True:
+        try:
+            user_account_number = int(input("Введите номер счёта: "))
+            mask_account_number = get_mask_account(user_account_number)
+            print(f"Номер счёта: {mask_account_number}")
+            break
+        except ValueError as e:
+            print("Номер счета должен состоять только из цифр, не менее 4!")
 
-while True:
-    try:
-        user_account_number = int(input("Введите номер счёта: "))
-        mask_account_number = get_mask_account(user_account_number)
-        print(f"Номер счёта: {mask_account_number}")
-        break
-    except ValueError as e:
-        print("Номер счета должен состоять только из цифр, не менее 4!")
