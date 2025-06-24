@@ -17,6 +17,7 @@ def get_mask_account(account_number: int) -> str:
 
 
 def actions_user() -> None:
+    """Функция для работы с пользователем"""
     while True:
         try:
             user_number_card = int(input("Введите номер карты: "))
