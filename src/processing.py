@@ -7,3 +7,8 @@ def filter_by_state(bank_operations: list[dict], state: str = "EXECUTED") -> lis
             filtered_transactions.append(operation)
 
     return filtered_transactions
+
+
+def sort_by_date(bank_operations: list[dict], reverse: bool = True) -> list[dict]:
+    """Сортирует список словарей по дате."""
+    return sorted(bank_operations, key=lambda x: x["date"], reverse=reverse)
