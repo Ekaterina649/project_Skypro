@@ -16,7 +16,7 @@ def get_mask_account(account_number: int) -> str:
     return f"**{account_number_str[-4:]}"
 
 
-def actions_user() -> None:
+'''def actions_user() -> None:
     """Функция для работы с пользователем"""
     while True:
         try:
@@ -34,4 +34,4 @@ def actions_user() -> None:
             print(f"Номер счёта: {mask_account_number}")
             break
         except ValueError:
-            print("Номер счета должен состоять только из цифр, не менее 4!")
+            print("Номер счета должен состоять только из цифр, не менее 4!")'''
