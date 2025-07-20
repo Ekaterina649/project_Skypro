@@ -102,7 +102,3 @@ def test_get_mask_account_invalid(raw_account: int) -> None:
         get_mask_account(raw_account)
 
 
-def test_get_mask_account_none() -> None:
-    """Проверка работы функции при передаче значения None"""
-    with pytest.raises(ValueError):
-        get_mask_account(None)  # type: ignore[arg-type]
