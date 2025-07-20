@@ -1,4 +1,4 @@
-from masks import get_mask_account, get_mask_card_number
+from .masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(str_account: str) -> str:
@@ -11,7 +11,7 @@ def mask_account_card(str_account: str) -> str:
     for detail in account_details:
         if detail.isdigit():
             card_name = " ".join([part for part in account_details if not part.isdigit()])
-            return f"{card_name}  {get_mask_card_number(int(detail))}"
+            return f"{card_name} {get_mask_card_number(int(detail))}"
     return "Ошибка: неверный формат данных"
 
 
