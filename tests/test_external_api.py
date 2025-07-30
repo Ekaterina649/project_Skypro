@@ -20,16 +20,22 @@ class TestTransactionAmountInRubles(unittest.TestCase):
         # Настраиваем mock ответ
         mock_response = MagicMock()
         mock_response.status_code = 200
-        mock_response.json.return_value = {"rates": {"RUB": 75.50}}
+        mock_response.json.return_value = {"rates": {"RUB": 75.5}}  # Исправленная структура ответа
         mock_get.return_value = mock_response
 
         transaction = {"amount": "10.00", "currency": "USD"}
         result = transaction_amount_in_rubles(transaction)
 
-        self.assertEqual(result, 755.00)  # 10 * 75.50 = 755.00
+        self.assertEqual(result, 755.00)  # 10.00 * 75.5 = 755.00
         mock_get.assert_called_once_with(
-            "http://test.url", headers={"apikey": "test_key"}, params={"base": "USD", "symbols": "RUB"}
-        )
+            "http://test.url",
+            headers={"apikey": "test_key"},
+            params={
+                       "from": "USD",
+                       "to": "RUB",
+                       "amount": 10.00
+                   })
+
 
     @patch("requests.get")
     @patch.dict("os.environ", {"EXCHANGE_RATES_API_KEY": "test_key", "BASE_URL": "http://test.url"})

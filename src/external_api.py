@@ -18,9 +18,13 @@ def transaction_amount_in_rubles(transaction: dict) -> float:
         return amount
     else:
         try:
-            payload = {"base": currency, "symbols": "RUB"}
+            params = {
+                "from": currency,
+                "to": "RUB",
+                "amount": amount
+            }
             headers = {"apikey": API_KEY}
-            response = requests.get(API_BASE_URL, headers=headers, params=payload)
+            response = requests.get(API_BASE_URL, headers=headers, params=params)
             status_code = response.status_code
             if status_code == 200:
                 result = response.json()["rates"]["RUB"]
