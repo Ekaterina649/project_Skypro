@@ -2,10 +2,10 @@ import json
 from typing import List, Dict, Any
 
 
-def get_financial_transactions(filename: str) ->  List[Dict[str, Any]]:
+def get_financial_transactions(filename: str) -> List[Dict[str, Any]]:
     """Функция читает файл json и возвращает список словарей с данными о финансовых транзакциях."""
     try:
-        with open(filename, encoding='utf-8') as f:
+        with open(filename, encoding="utf-8") as f:
             try:
                 data = json.load(f)
                 if isinstance(data, list):
@@ -19,4 +19,3 @@ def get_financial_transactions(filename: str) ->  List[Dict[str, Any]]:
     except FileNotFoundError:
         print("Файл не найден")
         return []
-
