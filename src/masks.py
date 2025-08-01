@@ -14,6 +14,3 @@ def get_mask_account(account_number: int) -> str:
     if len(account_number_str) < 4:
         raise ValueError
     return f"**{account_number_str[-4:]}"
-
-
-
