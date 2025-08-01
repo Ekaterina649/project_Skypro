@@ -18,11 +18,7 @@ def transaction_amount_in_rubles(transaction: dict) -> float:
         return amount
     else:
         try:
-            params = {
-                "from": currency,
-                "to": "RUB",
-                "amount": amount
-            }
+            params = {"from": currency, "to": "RUB", "amount": amount}
             headers = {"apikey": API_KEY}
             response = requests.get(API_BASE_URL, headers=headers, params=params)
             status_code = response.status_code
@@ -31,6 +27,3 @@ def transaction_amount_in_rubles(transaction: dict) -> float:
                 return round(amount * result, 2)
         except Exception as e:
             raise ValueError(f"Currency conversion failed: {str(e)}")
-
-
-
