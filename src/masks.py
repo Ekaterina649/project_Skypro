@@ -1,9 +1,11 @@
 import logging
 
+from src.config import LOGS_DIR
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler(
-    "C:/Users/Huawei/PycharmProjects/PythonProject2/logs/masks.log", encoding="utf-8", mode="w"
+    LOGS_DIR / 'masks.log', encoding="utf-8", mode="w"
 )
 file_formatter = logging.Formatter("%(asctime)s - %(module)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
