@@ -4,9 +4,7 @@ from src.config import LOGS_DIR
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler(
-    LOGS_DIR / 'masks.log', encoding="utf-8", mode="w"
-)
+file_handler = logging.FileHandler(LOGS_DIR / "masks.log", encoding="utf-8", mode="w")
 file_formatter = logging.Formatter("%(asctime)s - %(module)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
