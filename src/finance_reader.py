@@ -11,3 +11,4 @@ def reader_finance_from_excel(filepath):
     """Преобразуем файл из формата EXCEL в словарь"""
     dataframe = pd.read_excel(filepath, engine="openpyxl")
     return dataframe.to_dict("records")
+
