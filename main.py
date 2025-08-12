@@ -1,3 +1,4 @@
+from src.config import JSON_FILE, CSV_FILE, XLSX_FILE
 from src.finance_reader import reader_finance_from_csv, reader_finance_from_excel
 from src.generators import filter_by_currency
 from src.processing import filter_by_state, process_bank_search, sort_by_date
@@ -17,16 +18,14 @@ def main():
         )
         user_choice = input("Введите номер пункта меню:").strip()
         if user_choice == "1":
-            data = get_financial_transactions("C:/Users/Huawei/PycharmProjects/PythonProject2/data/operations.json")
+            data = get_financial_transactions(JSON_FILE)
             break
         elif user_choice == "2":
-            data = reader_finance_from_csv("C:/Users/Huawei/PycharmProjects/PythonProject2/data/transactions.csv")
+            data = reader_finance_from_csv(CSV_FILE)
             prepare_csv_like_data(data)
             break
         elif user_choice == "3":
-            data = reader_finance_from_excel(
-                "C:/Users/Huawei/PycharmProjects/PythonProject2/data/transactions_excel.xlsx"
-            )
+            data = reader_finance_from_excel(XLSX_FILE)
             prepare_csv_like_data(data)
             break
         else:
